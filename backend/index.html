@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-slate-50" lang="en" style="width: 1280px; height: 1024px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NestSphere - Customer Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="js/config/tailwind.config.js"></script>
+<link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body class="h-full flex overflow-hidden font-sans text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+<!-- ========================================== -->
+<!-- 1. LEFT SIDEBAR NAVIGATION (unchanged)     -->
+<!-- ========================================== -->
+<aside class="w-64 flex-shrink-0 bg-[#091E18] text-white flex flex-col justify-between border-r border-emerald-950/40 select-none z-30" data-purpose="sidebar-navigation">
+<div class="p-5 flex flex-col gap-6">
+<div class="flex items-center gap-3 px-1 py-1 cursor-pointer" id="nav-brand-logo" onclick="App.switchTab('dashboard')">
+<div class="h-10 w-10 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center shadow-md shadow-emerald-950/40 flex-shrink-0">
+<i class="w-5 h-5 text-white stroke-[2.2]" data-lucide="home"></i>
+</div>
+<div class="truncate">
+<span class="text-xl font-display font-bold tracking-tight text-white flex items-center">Nest<span class="text-emerald-400">Sphere</span></span>
+<span class="block text-[10px] uppercase font-semibold tracking-wider text-emerald-400/80 -mt-0.5">Proptech Portal</span>
+</div>
+</div>
+<nav class="flex flex-col gap-1.5 text-sm font-medium" id="sidebar-nav">
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-emerald-600/30 text-emerald-300 border border-emerald-500/20 font-semibold shadow-inner transition-all whitespace-nowrap cursor-pointer" id="nav-dashboard" onclick="App.switchTab('dashboard')">
+<div class="flex items-center gap-3"><i class="w-4 h-4 text-emerald-300 flex-shrink-0" data-lucide="layout-grid"></i><span class="truncate">Dashboard</span></div>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 nav-indicator"></span>
+</a>
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap cursor-pointer" id="nav-real-estate" onclick="App.switchTab('real-estate')">
+<div class="flex items-center gap-3"><i class="w-4 h-4 text-slate-400 flex-shrink-0" data-lucide="building"></i><span class="truncate">Real Estate</span></div>
+<span class="text-xs px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 text-[11px] font-semibold border border-slate-700" id="badge-real-estate-count">0</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap cursor-pointer" id="nav-interior-design" onclick="App.switchTab('interior-design')">
+<i class="w-4 h-4 text-slate-400 flex-shrink-0" data-lucide="palette"></i><span class="truncate">Interior Design</span>
+</a>
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap cursor-pointer" id="nav-properties" onclick="App.switchTab('properties')">
+<div class="flex items-center gap-3"><i class="w-4 h-4 text-slate-400 flex-shrink-0" data-lucide="home"></i><span class="truncate">Properties</span></div>
+</a>
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap cursor-pointer group" id="nav-construction" onclick="App.switchTab('construction')">
+<div class="flex items-center gap-3"><i class="w-4 h-4 text-slate-400 group-hover:text-amber-400 flex-shrink-0 transition-colors" data-lucide="hard-hat"></i><span class="truncate font-medium">Construction</span></div>
+<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">NCA</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap cursor-pointer" id="nav-profile" onclick="App.switchTab('profile')">
+<i class="w-4 h-4 text-slate-400 flex-shrink-0" data-lucide="user"></i><span class="truncate">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap cursor-pointer" id="nav-settings" onclick="App.switchTab('settings')">
+<i class="w-4 h-4 text-slate-400 flex-shrink-0" data-lucide="settings"></i><span class="truncate">Settings</span>
+</a>
+</nav>
+</div>
+<div class="p-4 border-t border-emerald-950/60">
+<div class="p-3.5 rounded-2xl bg-gradient-to-b from-[#113227] to-[#0d271f] border border-emerald-800/40 text-center shadow-lg">
+<div class="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-2"><i class="w-4 h-4" data-lucide="shield-check"></i></div>
+<h4 class="text-xs font-semibold text-white mb-0.5 font-display">NCA Certified Escrow</h4>
+<p class="text-[11px] text-emerald-200/70 mb-3 leading-tight">Milestone protection for builds</p>
+<button class="w-full py-1.5 px-3 text-xs font-semibold rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow hover:shadow-md" onclick="App.openEscrow()">Escrow Guarantee</button>
+</div>
+</div>
+</aside>
+
+<!-- ========================================== -->
+<!-- 2. MAIN APPLICATION CONTENT WRAPPER        -->
+<!-- ========================================== -->
+<div class="flex-1 flex flex-col h-full overflow-hidden bg-[#F8FAFC]">
+<header class="h-16 bg-white border-b border-slate-200/80 px-8 flex items-center justify-between flex-shrink-0 z-20" data-purpose="top-header">
+<div class="relative w-full max-w-xl">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400"><i class="w-4 h-4" data-lucide="search"></i></span>
+<input class="w-full pl-10 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-700/20 focus:border-emerald-700 placeholder-slate-400 transition" id="global-search-input" oninput="App.handleSearch(this.value)" onkeydown="if(event.key==='Enter') App.runGlobalSearch(this.value)" placeholder="Search property, NCA engineers, architects, or location..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200 transition-all" id="active-view-badge">
+<span class="w-2 h-2 rounded-full bg-emerald-500" id="view-indicator-dot"></span>
+<span id="view-indicator-text">Overview Dashboard</span>
+<button class="ml-1 text-[11px] text-slate-400 hover:text-emerald-700 underline hidden" id="view-reset-button" onclick="App.switchTab('dashboard')">Reset</button>
+</div>
+<button class="relative p-2 rounded-full text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition" onclick="App.showNotifications()">
+<i class="w-5 h-5" data-lucide="bell"></i>
+<span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-emerald-600 ring-2 ring-white" id="bell-dot"></span>
+</button>
+<div class="h-6 w-px bg-slate-200"></div>
+<div class="flex items-center gap-3 cursor-pointer pl-1 py-1 rounded-full hover:bg-slate-50 transition" onclick="App.switchTab('profile')">
+<div class="relative">
+<img alt="User avatar" class="js-avatar w-9 h-9 rounded-full object-cover ring-2 ring-emerald-600/30" id="user-avatar-img" src=""/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-1.5 ring-white"></span>
+</div>
+<div class="text-left hidden sm:block">
+<div class="text-xs font-bold text-slate-900 leading-tight" id="user-display-name">Kelvin Mwangi</div>
+<div class="text-[11px] text-emerald-700 font-medium" id="user-role-label">Customer Account</div>
+</div>
+<i class="w-4 h-4 text-slate-400 pr-1" data-lucide="chevron-down"></i>
+</div>
+</div>
+</header>
+
+<main class="flex-1 overflow-y-auto px-8 py-6 space-y-7" id="main-scroll-container">
+
+<!-- TAB 1: DASHBOARD = account overview, wallet, activity -->
+<div class="space-y-7" id="tab-view-dashboard"></div>
+<!-- TAB 2: REAL ESTATE = browse, search & reserve listings -->
+<div class="hidden space-y-6" id="tab-view-real-estate"></div>
+<!-- TAB 3: INTERIOR DESIGN = studios, packages, design projects -->
+<div class="hidden space-y-6" id="tab-view-interior-design"></div>
+<!-- TAB 4: PROPERTIES = my portfolio, saved, rent & installments -->
+<div class="hidden space-y-6" id="tab-view-properties"></div>
+
+<!-- TAB 5: CONSTRUCTION (NCA) = engineers, audits, BOQ, escrow milestones -->
+<div class="hidden space-y-7" id="tab-view-construction">
+<section class="rounded-3xl p-6 lg:p-7 border border-emerald-900/10 bg-gradient-to-b from-white to-emerald-50/20 shadow-sm construction-glow border-emerald-500" id="construction-section">
+<div class="flex flex-col md:flex-row md:items-end justify-between pb-6 border-b border-slate-200 gap-4">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold mb-2"><i class="w-3.5 h-3.5 text-emerald-700" data-lucide="shield-check"></i><span>National Construction Authority (NCA) &amp; BORAQS Accredited</span></div>
+<h2 class="text-xl lg:text-2xl font-bold font-display text-slate-900 tracking-tight">Construction &amp; Site Engineering Hub</h2>
+<p class="text-xs text-slate-500 mt-1">Direct access to registered engineers, architectural blueprint compliance audits, and milestone-protected site delivery across Kenya.</p>
+</div>
+<div class="flex items-center gap-2.5">
+<button class="px-4 py-2 bg-brand-800 hover:bg-brand-700 text-white rounded-xl text-xs font-semibold flex items-center gap-2 shadow-sm transition" onclick="App.openBooking('NCA Site Inspection','Site inspection')"><i class="w-3.5 h-3.5" data-lucide="calendar"></i><span>Book Site Inspection</span></button>
+<button class="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-medium transition" onclick="App.switchTab('dashboard')">Dashboard View</button>
+</div>
+</div>
+
+<div class="mt-6 bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-md transition">
+<div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+<div class="lg:col-span-5 relative min-h-[300px] lg:min-h-[360px] bg-slate-900 overflow-hidden group">
+<img alt="Kenyan site engineers reviewing architectural blueprints on site" class="w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC32ARqPQbVbFFfQ4YayAUCgsKG2wvwnxf3W0o77hFpuvARPzbLs8_tnKnZfnvT4c8Tz_Ywemqpo_WDlcSsHRRkt47eY7sV10_ZOgELjMDvHFWAhTHgrHm73H_uSMVrYqk76wOywwUcA1cJXDHyTUlKx0ShgENZqoA1N_LVaxExvY7EX_XM36SB5FGUwEW5w3bw5TDhYgOv_SCgVTkiOclAF3tByrH2xW1tFtlkwEFqcRLgLhxZUkB7xVOVPYER_PczQQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-between p-5">
+<div class="flex items-center justify-between">
+<span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-600 text-white shadow-md flex items-center gap-1.5"><i class="w-3.5 h-3.5" data-lucide="check-circle"></i>NCA 1-4 Certified</span>
+<span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-white/20 backdrop-blur-md text-white border border-white/30">Nairobi &amp; Kiambu Unit</span>
+</div>
+<div class="text-white">
+<div class="flex items-center gap-2 mb-1"><div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div><span class="text-xs uppercase tracking-wider text-emerald-300 font-bold">Live On-Site Supervision</span></div>
+<h4 class="text-base font-bold font-display text-white">Blueprint Compliance &amp; Structural Foundation Audit</h4>
+<p class="text-xs text-slate-200 mt-1 line-clamp-2">Rigorous stage-by-stage physical inspections preventing structural non-compliance and material wastage.</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 p-6 lg:p-7 flex flex-col justify-between bg-white">
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-2">
+<span class="text-[11px] font-bold uppercase tracking-wider text-brand-800 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-800/10">Full Project Lifecycle</span>
+<span class="text-[11px] font-medium text-slate-500">Engineers Board of Kenya (EBK) Registered</span>
+</div>
+<h3 class="text-lg lg:text-xl font-bold font-display text-slate-900 leading-snug">End-to-End Construction Supervision &amp; Quantity Surveying</h3>
+<p class="text-xs text-slate-600 mt-2 leading-relaxed">Eliminate building defects and cost overruns. Our licensed Kenyan structural engineers, architects, and quantity surveyors safeguard your capital through verified milestone certifications and on-site oversight.</p>
+<div class="grid grid-cols-2 gap-3.5 mt-5">
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-3"><div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center flex-shrink-0"><i class="w-4 h-4" data-lucide="file-check"></i></div><div><div class="text-xs font-bold text-slate-900">Blueprint Audits</div><div class="text-[11px] text-slate-500">County approval &amp; structural load check</div></div></div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-3"><div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-800 flex items-center justify-center flex-shrink-0"><i class="w-4 h-4" data-lucide="calculator"></i></div><div><div class="text-xs font-bold text-slate-900">Bill of Quantities (BOQ)</div><div class="text-[11px] text-slate-500">Detailed itemized material costing</div></div></div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-3"><div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center flex-shrink-0"><i class="w-4 h-4" data-lucide="shield-alert"></i></div><div><div class="text-xs font-bold text-slate-900">Soil &amp; Concrete Tests</div><div class="text-[11px] text-slate-500">Curing cube tests &amp; load tests</div></div></div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-3"><div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center flex-shrink-0"><i class="w-4 h-4" data-lucide="lock"></i></div><div><div class="text-xs font-bold text-slate-900">Milestone Escrow</div><div class="text-[11px] text-slate-500">Funds released only after sign-off</div></div></div>
+</div>
+</div>
+<div class="pt-5 mt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2"><span class="text-xs font-bold text-slate-800">4.9 / 5.0 Rating</span><span class="text-[11px] text-slate-500">• 380+ Verified Site Audits across Karen, Kilimani, Runda &amp; Ruiru</span></div>
+<button class="px-4 py-2 bg-brand-800 hover:bg-brand-700 text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 transition" onclick="App.openBooking('General Blueprint Site Audit','Site audit')"><span>Request Site Audit</span><i class="w-3.5 h-3.5" data-lucide="chevron-right"></i></button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="mt-6">
+<div class="flex items-center justify-between mb-3.5">
+<div><h3 class="text-sm font-bold font-display text-slate-900">NCA &amp; BORAQS Accredited Construction Teams</h3><p class="text-xs text-slate-500">Registered Lead Consultants with verified Kenyan field track records</p></div>
+<span class="text-xs font-medium text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-600/20">All Verified &amp; Insured</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="engineers-team-container"></div>
+</div>
+
+<!-- Escrow milestone tracker (dynamic) -->
+<div class="mt-8" id="escrow-section"></div>
+</section>
+</div>
+
+<!-- TAB 6: PROFILE = identity & personal details -->
+<div class="hidden space-y-6" id="tab-view-profile"></div>
+<!-- TAB 7: SETTINGS = security, preferences, payments, data -->
+<div class="hidden space-y-6" id="tab-view-settings"></div>
+
+<footer class="pt-4 pb-4 text-center text-xs text-slate-400 border-t border-slate-200/60">
+<p>© 2026 NestSphere Kenya Proptech. All contractors are verified under the National Construction Authority (NCA) &amp; BORAQS regulations.</p>
+</footer>
+</main>
+</div>
+
+<!-- MODAL ROOT (booking, payment, confirm) -->
+<div class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden" id="booking-modal" onclick="if(event.target===this) Modal.close()">
+<div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200 max-h-[92vh] overflow-y-auto" id="modal-body"></div>
+</div>
+
+<!-- TOAST -->
+<div class="fixed bottom-6 right-6 bg-[#091E18] text-white px-4 py-3 rounded-2xl shadow-xl border border-emerald-700/50 flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-3 z-[60]" id="toast-notification">
+<i class="w-4 h-4 text-emerald-400" data-lucide="check-circle"></i>
+<span class="text-xs font-medium" id="toast-message">Success!</span>
+</div>
+
+<!-- 1. Settings & data -->
+<script src="js/config/constants.js"></script>
+<!-- 2. Helpers -->
+<script src="js/utils/helpers.js"></script>
+<script src="js/utils/validators.js"></script>
+<!-- 3. Core (state & permissions) -->
+<script src="js/core/store.js"></script>
+<script src="js/core/auth.js"></script>
+<!-- 4. Services (business logic) -->
+<script src="js/services/wallet.js"></script>
+<script src="js/services/gateway.js"></script>
+<!-- 5. Reusable UI (pop-up & checkout) -->
+<script src="js/ui/modal.js"></script>
+<script src="js/ui/checkout.js"></script>
+<!-- 6. Views – one file per tab -->
+<script src="js/views/shared.js"></script>
+<script src="js/views/dashboard.js"></script>
+<script src="js/views/real-estate.js"></script>
+<script src="js/views/interior-design.js"></script>
+<script src="js/views/properties.js"></script>
+<script src="js/views/construction.js"></script>
+<script src="js/views/profile.js"></script>
+<script src="js/views/settings.js"></script>
+<!-- 7. App actions – one file per feature -->
+<script src="js/app/app.js"></script>
+<script src="js/app/wallet.js"></script>
+<script src="js/app/real-estate.js"></script>
+<script src="js/app/bookings.js"></script>
+<script src="js/app/interior-design.js"></script>
+<script src="js/app/construction.js"></script>
+<script src="js/app/profile.js"></script>
+<script src="js/app/settings.js"></script>
+<!-- 8. Start -->
+<script src="js/main.js"></script>
+</body></html>

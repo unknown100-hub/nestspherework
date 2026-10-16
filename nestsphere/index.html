@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>NestSphere - Modern Real Estate</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="js/tailwind-config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="home-bg min-h-screen flex flex-col items-center p-3 sm:p-6 text-slate-800">
+<main class="w-full max-w-[1240px] bg-white rounded-3xl lg:rounded-5xl shadow-2xl p-4 sm:p-8 lg:p-10 my-auto">
+  <header class="flex items-center justify-between pb-6 relative">
+    <a href="index.html" class="font-display font-bold text-2xl lg:text-3xl text-neutral-900 tracking-tight flex items-center">
+      NestSphere<span class="inline-block w-2 h-2 ml-1 rounded-full bg-neutral-900"></span></a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-600">
+      <a class="text-neutral-950 font-semibold" href="index.html">Home</a>
+      <a class="hover:text-black" href="#about">About Us</a>
+      <a class="hover:text-black" href="login.html">Login</a>
+      <a class="hover:text-black" href="register.html">Register</a>
+    </nav>
+    <button id="menu-btn" aria-label="Menu" class="md:hidden p-2 rounded-full hover:bg-neutral-100"><span class="material-symbols-outlined">menu</span></button>
+    <nav id="mobile-nav" class="hidden absolute right-0 top-14 z-20 w-48 bg-white rounded-2xl shadow-xl border border-neutral-100 p-3 flex flex-col gap-1 text-sm font-medium">
+      <a class="px-3 py-2 rounded-lg hover:bg-neutral-100" href="index.html">Home</a>
+      
+      <a class="px-3 py-2 rounded-lg hover:bg-neutral-100" href="login.html">Login</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-neutral-100" href="register.html">Register</a>
+    </nav>
+  </header>
+
+  <section class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6">
+    <article class="relative lg:col-span-8 rounded-3xl overflow-hidden min-h-[420px] lg:min-h-[560px] flex items-end p-6 sm:p-9 text-white group" style="background-image: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.65)), url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/a0/61/9b/intercontinental-luanda.jpg?w=800&h=-1&s=1'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/20"></div>
+      <div class="relative max-w-xl space-y-4">
+        <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-[1.15]">Find the Perfect Property with Expert Guidance.</h1>
+        <p class="text-neutral-200 text-sm sm:text-base max-w-md">Manage tasks, track progress and get the best results on a single platform.</p>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="register.html" class="px-5 py-2.5 rounded-full bg-white text-neutral-900 text-sm font-semibold hover:bg-neutral-100">Create account</a>
+          <a href="login.html" class="px-5 py-2.5 rounded-full border border-white/50 text-sm font-semibold hover:bg-white/10">Sign in</a>
+        </div>
+      </div>
+    </article>
+    <aside class="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5 lg:gap-6">
+      <article class="relative rounded-3xl overflow-hidden min-h-[250px] flex items-end p-6 text-white group">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi2nzvi81zM6dgGOI_aOgS47aylGdDhpEcUIzsTDaWSEBfk6LEAlLSd2BT6UoskWMZM7okFsZuYnM1IGoK6JSgv_GcUteyO8RqGM4PrpnjXa731mFNJDW_eUJauFEzt0oYtnMI7bLinTrsRjm2_5CQHjO1jIqqOS5GGm6kmL1XJcBnz06GtQOrBa4IL7xLwukar9sJJOJKfbmPTxtKqDbHUcw4qh7ZzLSyFn1qFPXnHL4FRDydD2__lEt7COqF_JBwxw" alt="Luxury villa with infinity pool" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
+        <h2 class="relative font-display font-semibold text-xl">Luxury Living, Kiliman State</h2>
+      </article>
+      <article class="relative rounded-3xl overflow-hidden min-h-[250px] flex items-end p-6 text-white group">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmav_Cbe__zES7JtQg5m2faK9xKwl9aVKkeqZ31xtKORa1fApMKwuN_rOnmvA1YK79rZabDLsRqOBrqn2_obuT2Z8x3BdOXQF_2L_mGAwyyFPNh5_k3Dugwi4Z7F9oEAscnEe74esPNk4xJy38H7xoD77eCvn_Zc3dGG5rEWJuRXwBPWurTA6G0xlbaxWkDy4gyRAW2IZSzOXSb_AZkhOsmIwrTSDsrr44XT_ohUYAFtELFKvXVQCd" alt="Luxury interior" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent"></div>
+        <h2 class="relative font-display font-semibold text-xl max-w-[80%]">Interior Design Around Nairobi</h2>
+      </article>
+    </aside>
+  </section>
+</main>
+<p class="text-xs text-white/80 mt-4">© 2026 NestSphere Inc. All rights reserved.</p>
+<script>document.getElementById('menu-btn').onclick=()=>document.getElementById('mobile-nav').classList.toggle('hidden')</script>
+</body></html>

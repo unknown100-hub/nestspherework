@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>NestSphere - Create Your Account</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="js/tailwind-config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="min-h-screen flex flex-col auth-page text-on-surface antialiased">
+<div id="site-header"></div>
+<main class="flex-1 flex items-center justify-center px-4 sm:px-6 py-6">
+  <div class="auth-shell w-full max-w-5xl overflow-hidden flex flex-col md:flex-row rounded-3xl">
+    <div class="relative hidden md:flex md:w-5/12 flex-col justify-end p-8 text-white overflow-hidden bg-primary-container neu-panel rounded-none md:rounded-l-3xl md:rounded-r-0 m-3 md:m-0">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuByRuecgYgonKGVtADXH0eSyemnuIBLSLWA7jK27jEvPZEV3SrUbtDJXU8P2_6zZJK89gjhu09Nt4OkeTW9f96qxJwJH1wyhCmqVnQjxWl8-iO7G8B-axJCcgxhOfYa9k23ZHsNq-3SGub8pgXiZrOA3o4D78Kj8bMuHhG73FORvVHKoTLM7ROFmJ7Bmy6JW1OJ_XbVeprC8yDc2huOcqeDZPq8fz_XCvpRlKI_-98vtgSTgsBANETw9zFzTXAXY_KK2Q" alt="Modern Kenyan villa" class="absolute inset-0 w-full h-full object-cover rounded-3xl md:rounded-l-3xl md:rounded-r-0">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0e1915]/95 via-[#0e1915]/60 to-[#0e1915]/25 rounded-3xl md:rounded-l-3xl md:rounded-r-0"></div>
+      <div class="relative space-y-4">
+        <h2 class="font-display text-2xl font-bold leading-tight">Build &amp; Invest with Certainty Across Kenya</h2>
+        <p class="text-sm text-white/80">Connect with licensed contractors, verified title-held land, and milestone-guaranteed escrow.</p>
+        <div class="pt-3 border-t border-white/15 grid grid-cols-3 gap-2 text-center">
+          <div class="bg-black/30 rounded-xl py-2"><p class="font-display font-bold text-secondary-fixed">4,800+</p><p class="text-[11px] text-white/70">Vetted pros</p></div>
+          <div class="bg-black/30 rounded-xl py-2"><p class="font-display font-bold text-secondary-fixed">4.2B KES</p><p class="text-[11px] text-white/70">In escrow</p></div>
+          <div class="bg-black/30 rounded-xl py-2"><p class="font-display font-bold text-secondary-fixed">100%</p><p class="text-[11px] text-white/70">NCA &amp; title</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full md:w-7/12 p-6 sm:p-8 lg:p-10 neu-panel rounded-3xl m-3 md:m-0 md:rounded-none md:rounded-r-3xl">
+      <h1 class="font-display text-2xl font-bold text-primary">Create your account</h1>
+      <p class="text-sm text-on-surface-variant mt-0.5 mb-5">Join homeowners, investors, and certified professionals.</p>
+      <form id="register-form" class="space-y-4">
+        <fieldset>
+          <legend class="text-xs font-bold text-on-surface mb-1.5">Profile type</legend>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <label class="block"><input type="radio" name="role" value="client" checked class="peer sr-only">
+              <div class="neu-panel flex items-center gap-2.5 p-2.5 rounded-xl cursor-pointer hover:bg-surface-container peer-checked:border-primary peer-checked:bg-primary/5 peer-checked:ring-1 peer-checked:ring-primary"><span class="material-symbols-outlined text-primary">villa</span>
+                <div><div class="text-sm font-bold text-primary">Client / Buyer</div><div class="text-xs text-on-surface-variant">Buy, build or hire</div></div></div></label>
+            <label class="block"><input type="radio" name="role" value="contractor" class="peer sr-only">
+              <div class="neu-panel flex items-center gap-2.5 p-2.5 rounded-xl cursor-pointer hover:bg-surface-container peer-checked:border-primary peer-checked:bg-primary/5 peer-checked:ring-1 peer-checked:ring-primary"><span class="material-symbols-outlined text-primary">engineering</span>
+                <div><div class="text-sm font-bold text-primary">Trade Pro <span class="ml-1 px-1.5 rounded bg-secondary-fixed text-[10px]">NCA</span></div><div class="text-xs text-on-surface-variant">Architects, builders</div></div></div></label>
+          </div>
+          <p id="pro-notice" class="hidden mt-2 p-2 rounded-lg bg-surface-low border border-secondary/20 text-xs text-secondary font-medium">Have your NCA or BORAQS registration ID ready for faster verification.</p>
+        </fieldset>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div><label for="name" class="block text-xs font-semibold mb-1">Full legal name *</label>
+            <div class="relative"><span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[17px] pointer-events-none">person</span><input id="name" required placeholder="John Mwangi" class="neu-input w-full pl-9 pr-3 py-2 rounded-xl text-sm focus:ring-1 focus:ring-primary-container focus:border-primary-container"></div></div>
+          <div><label for="email" class="block text-xs font-semibold mb-1">Email *</label>
+            <div class="relative"><span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[17px] pointer-events-none">mail</span><input id="email" type="email" required placeholder="john@example.com" class="neu-input w-full pl-9 pr-3 py-2 rounded-xl text-sm focus:ring-1 focus:ring-primary-container focus:border-primary-container"></div></div>
+          <div><label for="phone" class="block text-xs font-semibold mb-1">M-Pesa mobile number *</label>
+            <div class="relative"><span class="absolute left-3 top-2 text-xs font-semibold border-r border-outline-variant/40 pr-2">🇰🇪 +254</span>
+              <input id="phone" type="tel" required placeholder="712 345 678" class="neu-input w-full pl-[5.5rem] pr-3 py-2 rounded-xl text-sm focus:ring-1 focus:ring-primary-container focus:border-primary-container"></div></div>
+          <div><label for="county" class="block text-xs font-semibold mb-1">Operating county</label>
+            <div class="relative"><span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[17px] pointer-events-none">location_on</span><select id="county" class="neu-input w-full pl-9 pr-3 py-2 rounded-xl text-sm focus:ring-1 focus:ring-primary-container focus:border-primary-container"><option>Nairobi City (047)</option><option>Kiambu (022)</option><option>Mombasa (001)</option><option>Nakuru (032)</option><option>Machakos (016)</option><option>Kajiado (034)</option><option>Kisumu (042)</option><option>Uasin Gishu (027)</option><option>Kilifi (003)</option><option>Murang'a (021)</option><option>Nyeri (019)</option><option>Meru (012)</option><option>Kakamega (037)</option><option>Laikipia (031)</option><option>Embu (014)</option><option>Kericho (035)</option><option>Bomet (036)</option><option>Bungoma (039)</option><option>Busia (040)</option><option>Elgeyo/Marakwet (028)</option><option>Garissa (007)</option><option>Homa Bay (043)</option><option>Isiolo (011)</option><option>Kirinyaga (020)</option><option>Kisii (045)</option><option>Kitui (015)</option><option>Kwale (002)</option><option>Lamu (005)</option><option>Makueni (017)</option><option>Mandera (009)</option><option>Marsabit (010)</option><option>Migori (044)</option><option>Nandi (029)</option><option>Narok (033)</option><option>Nyamira (046)</option><option>Nyandarua (018)</option><option>Samburu (025)</option><option>Siaya (041)</option><option>Taita/Taveta (006)</option><option>Tana River (004)</option><option>Tharaka-Nithi (013)</option><option>Trans Nzoia (026)</option><option>Turkana (023)</option><option>Vihiga (038)</option><option>Wajir (008)</option><option>West Pokot (024)</option><option>Baringo (030)</option><option>Diaspora / International</option></select></div></div>
+          <div><label for="password" class="block text-xs font-semibold mb-1">Password *</label>
+            <div class="relative"><span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[17px] pointer-events-none">lock</span>
+              <input id="password" type="password" required minlength="10" maxlength="128" placeholder="Create a password" class="neu-input w-full pl-9 pr-3 py-2 rounded-xl text-sm focus:ring-1 focus:ring-primary-container focus:border-primary-container pr-9">
+              <button type="button" data-toggle="password" aria-label="Show password" class="absolute right-2.5 top-2 text-on-surface-variant"><span class="material-symbols-outlined text-[17px]">visibility</span></button></div>
+            <div class="flex items-center gap-1 pt-1.5"><div class="bar h-1 flex-1 rounded-full bg-surface-container"></div><div class="bar h-1 flex-1 rounded-full bg-surface-container"></div><div class="bar h-1 flex-1 rounded-full bg-surface-container"></div>
+              <span id="strength-text" class="text-[10px] pl-1 text-outline">Strength</span></div></div>
+          <div><label for="confirm" class="block text-xs font-semibold mb-1">Confirm password *</label>
+            <div class="relative"><span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[17px] pointer-events-none">verified_user</span>
+              <input id="confirm" type="password" required placeholder="Re-enter password" class="neu-input w-full pl-9 pr-3 py-2 rounded-xl text-sm focus:ring-1 focus:ring-primary-container focus:border-primary-container pr-9">
+              <button type="button" data-toggle="confirm" aria-label="Show password" class="absolute right-2.5 top-2 text-on-surface-variant"><span class="material-symbols-outlined text-[17px]">visibility</span></button></div></div>
+        </div>
+
+        <label class="flex items-start gap-2 text-xs text-on-surface-variant"><input type="checkbox" required class="mt-0.5 rounded text-primary-container">
+          <span>I agree to the <a href="#" class="text-primary font-semibold hover:underline">Terms of Service</a>, <a href="#" class="text-primary font-semibold hover:underline">Escrow Safety Policy</a> and Kenya Data Protection Act compliance.</span></label>
+        <p id="form-error" role="alert" class="hidden text-sm text-error"></p>
+        <button type="submit" class="neu-button w-full py-3 rounded-xl text-primary font-semibold flex items-center justify-center gap-2 shadow-md">
+          Create account <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+        <p class="text-center text-xs text-on-surface-variant">Already registered? <a href="login.html" class="text-secondary font-bold hover:underline">Sign in</a></p>
+      </form>
+    </div>
+  </div>
+</main>
+<div id="site-footer"></div>
+<script src="js/layout.js"></script><script src="js/auth-config.js"></script><script src="js/register.js"></script>
+</body></html>

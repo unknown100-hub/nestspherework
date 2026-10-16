@@ -1,0 +1,6 @@
+{
+  "name": "nestsphere",
+  "version": "1.0.0",
+  "description": "NestSphere - static multi-page real estate site",
+  "scripts": { "start": "npx serve . -l 3000" }
+}
